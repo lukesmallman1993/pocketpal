@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row card-style">
+        <h1 class="center-align">Upload your recipe</h1>
+    </div>
+
+    <div class="row card-panel form-style" id="ingredient-upload-form">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pizza-slice prefix"></i>
+                    <input id="pizza_name" name="pizza_name" minlength="4" type="text" class="validate" required>
+                    <label for="pizza_name">Pizza name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-feather-alt prefix"></i>
+                    <textarea id="short_description" name="short_description" minlength="5" maxlength="50" class="materialize-textarea validate" required></textarea>
+                    <label for="short_description">Short description - 50 characters max</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12" id="ingredient-section">
+                    <i class="fas fa-pepper-hot prefix"></i>
+                    <input id="ingredients" name="ingredients" type="text" class="validate ingredient-input" minlength="4" required>
+                    <label for="ingredients">Ingredients</label>
+                    <!--Below is where each new ingredient is added-->
+                    <div id="ingredient-insert"></div>
+                </div>
+                <div>
+                    <div class="row">
+                        <span class="button-div">
+                            <button type="button" id="next-ingredient-button" class="btn-large positive-button-style">Add ingredient</button>
+                        </span>
+                        <span class="button-div">
+                            <button type="button" id="delete-ingredient-button" class="btn-large negative-button-style">Delete ingredient</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--Instructions-->
+            <div class="row">
+                <div class="input-field col s12" id="cooking-steps-section">
+                    <i class="fas fa-clipboard-list prefix"></i>
+                    <!--Name attribute below must match the key in the database, as this is what Python uses to grab data from the form to put into the database-->
+                    <textarea id="cooking_steps" name="cooking_steps" type="text" minlength="5" maxlength="5000" class="materialize-textarea validate cooking_steps" required></textarea>
+                    <label for="cooking_steps">Cooking instructions</label>
+                    <div id="step-insert"></div>
+                </div>
+                <div>
+                    <div class="row step-buttons-div">
+                        <span class="button-div">
+                            <button type="button" id="next-step-button" class="btn-large positive-button-style">Add step</button>
+                        </span>
+                        <span class="button-div">
+                            <button type="button" id="delete-step-button" class="btn-large negative-button-style">Delete step</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--Image URL-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-camera-retro prefix"></i>
+                    <!--Name attribute below must match the key in the database, as this is what Python uses to grab data from the form to put into the database-->
+                    <input id="image_url" name="image_url" type="text" class="validate" value="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" required>
+                    <label for="image_url">Image URL</label>
+                </div>
+            </div>
+            <!--Category options-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix"></i>
+                    <!--Name attribute below must match the key in the database, as this is what Python uses to grab data from the form to put into the database-->
+                    <select multiple id="category_name" name="category_name" class="validate">
+                        <option value="" disabled>Select one or more - this allows other users to see your recipe when searching by category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name" class="label-text">Pizza categories</label>
+                </div>
+            </div>
+            <!--Submit button-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="submit btn-large positive-button-style">
+                        Submit pizza <i class="fas fa-motorcycle"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<script src="{{ url_for('static', filename='js/remove_add.js') }}"></script>
+{% endblock %}
