@@ -7,4 +7,19 @@
         {{ meal.meal_description }}<br>
     {% endfor %}
 
+    <ul class="collapsible">
+        {% for meal in meals %}
+        <li>
+            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ meal.meal_name }}<br></strong>
+            </div>
+            <div class="collapsible-body">
+               <strong>{{ meal.category_name }}<br></strong> 
+               <p>{{ meal.meal_description }}<br></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
