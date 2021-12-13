@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<ul class="collapsible">
+    {% for recipe in recipes %}
+    <li>
+        <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+            <div class="col s3">
+                <i class="fas fa-caret-down"></i>
+                <a href="" class="btn-small green accent-4">Done</a>
+                <a href="" class="btn-small light-blue lighten-1">Edit</a>
+            </div>
+            <div class="col s9">
+                <strong>{{ recipe.recipe_name }}</strong>
+            </div>
+            <div class="collapsible-body">
+                <strong>{{ recipe.category_name }}</strong>
+                <p>{{ recipe.recipe_description }}</p>
+                <p><em>by: {{ recipe.created_by }}</em></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

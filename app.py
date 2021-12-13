@@ -2,7 +2,6 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
-from flask_paginate import Pagination, get_page_args
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -22,22 +21,9 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=recipes)
 
-    page, per_page, offset = get_page_args(
-        page_parameter='page', per_page_parameter='per_page',
-        offset_parameter='offset')
-    per_page = 4
-    offset = (page - 1) * per_page
-    total = mongo.db.recipes.find().count()
-    recipes = mongo.db.recipes.find()
-    recipes_paginated = recipes[offset: offset + per_page]
-    pagination = Pagination(page=page, per_page=per_page,
-                            total=total, css_framework='materializecss')
-    return render_template("index.html", recipes=recipes_paginated,
-                           page=page,
-                           per_page=per_page,
-                           pagination=pagination)
-                           
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -105,29 +91,19 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-   
     if request.method == "POST":
         recipe = {
-            "meal_name": request.form.get("pizza_name"),
-            "meal_description": request.form.get("short_description"),
-            "category_name": request.form.getlist("category_name"),
-            "ingredients": request.form.getlist("ingredients"),
-            "cooking_steps": request.form.getlist("cooking_steps"),
+            "category_name": request.form.get("category_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("recipe_description"),
             "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
-        flash("Thank you for submitting your recipe!")
+        flash("Recipe Successfully Added")
         return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
-
-
-@app.route("/view_recipe/<recipe_id>")
-def view_recipe(recipe_id):
-   
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=recipe)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
