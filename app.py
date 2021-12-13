@@ -89,6 +89,10 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+@app.route("/add_meals")
+def add_meals():
+    return render_template("add_meals.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
