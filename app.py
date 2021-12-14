@@ -123,7 +123,7 @@ def add_recipe():
                 image_url = recipe_image
                 flash("Image verified")
             else:
-                image_url = "../static/images/new-zombie.jpg"
+                image_url = "../static/images/food.jpg"
                 flash("Image not valid, will apply default image instead")
 
         recipe = {
