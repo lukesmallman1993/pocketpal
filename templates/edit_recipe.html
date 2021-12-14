@@ -1,59 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Edit Task</h3>
 
-    <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
-            <!-- category selection -->
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled>Choose Category</option>
+    <!-- form utilising materialise css -->
+    <div class="row">
+        <form class="col s12 m10 offset-m1 grey lighten-4" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+            <h2 class="header">Edit Recipe</h2>
+            <div class="row form-row">
+                <!-- select category field -->
+                <div class="input-field col s12">
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled>Choose category</option>
                         {% for category in categories %}
                             {% if category.category_name == recipe.category_name %}
-                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                             {% else %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                             {% endif %}
                         {% endfor %}
                     </select>
-					<label for="category_name">recipe Category</label>
-				</div>
-			</div>
-            <!-- task name -->
-            <div class="row">
+                    <label for="category_name">Select a Category</label>
+                </div>
+
+                <!-- input recipe name -->
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
-                        value="{{ recipe.recipe_name }}" type="text" class="validate" required>
-                    <label for="recipe_name">recipe Name</label>
+                    <input id="recipe_name" name="recipe_name" minlength="2" maxlength="40" value="{{ recipe.title_name }}" type="text" class="validate" required>
+                    <label for="recipe_name">Recipe</label>
                 </div>
-            </div>
-            <!-- task description -->
-            <div class="row">
+
+                <!-- input description of recipe -->
+                <div id="description-col" class="input-field col s12">
+                    <input id="recipe_description" name="recipe_description" minlength="2" maxlength="30" value="{{ recipe.recipe_description }}" type="text" class="validate">
+                    <label for="recipe_description">Description</label>
+                </div>
+                    
+                <!-- input image url as an option for the user - not required -->    
+                
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="recipe_description" name="recipe_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required>
-                        {{- recipe.recipe_description -}}
-                    </textarea>
-                    <label for="recipe_description">recipe Description</label>
-                </div>
+                    <!-- if using default image, field should not display image address -->
+                    {% if recipe.image_url == "../static/images/new-zombie.jpg" %}
+                    <input id="image_url" name="image_url" value="" minlength="2" maxlength="150" type="url" class="validate">
+                    <label for="image_url">Link to image (optional)</label>
+                    {% else %}
+                    <!-- if user url supplied previously, this will display here -->
+                    <input id="image_url" name="image_url" value="{{ recipe.image_url }}" minlength="2" maxlength="150" type="url" class="validate">
+                    <label for="image_url">Link to image (optional)</label>
+                    {% endif %}
+                </div>          
             </div>
-            <!-- submit button -->
-            <div class="row">
-                <div class="col s12 center-align">
-                    <!-- cancel button -->
-                    <a href="{{ url_for('get_recipes') }}" class="btn-large red text-shadow">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Edit Task <i class="fas fa-edit right"></i>
-                    </button>
-                </div>
+
+                <!-- submit/edit button -->
+            <div class="center-align">
+                <button class="btn waves-effect waves-light red darken-4 center-align" type="submit">Edit Recipe
+                <i class="fas fa-sign-in-alt"></i>
+                </button>
+                <a href="{{ url_for('profile', username=session['user']) }}" class="btn waves-effect waves-light grey darken-4 center-align">Cancel
+                    <i class="fas fa-times-circle"></i>
+                </a>
             </div>
+            
         </form>
     </div>
 
