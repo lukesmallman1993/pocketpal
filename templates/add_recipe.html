@@ -29,6 +29,27 @@
                 <label for="recipe_description">Description</label>
             </div>
 
+            <!-- input recipe ingredients -->
+            <div class="row">
+                <div class="input-field col s12" id="ingredient-section">
+                    <i class="fas fa-pepper-hot prefix"></i>
+                    <input id="ingredients" name="ingredients" type="text" class="validate ingredient-input" minlength="4" required>
+                    <label for="ingredients">Ingredients</label>
+                    <!--Below is where each new ingredient is added-->
+                    <div id="ingredient-insert"></div>
+                </div>
+                <div>
+                    <div class="row">
+                        <span class="button-div">
+                            <button type="button" id="next-ingredient-button" class="btn-large positive-button-style">Add ingredient</button>
+                        </span>
+                        <span class="button-div">
+                            <button type="button" id="delete-ingredient-button" class="btn-large negative-button-style">Delete ingredient</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
             <!-- input image url as an option for the user - not required -->    
             <div class="input-field col s12">
                 <input id="image_url" name="image_url" minlength="2" maxlength="150" type="url" class="validate">
@@ -48,5 +69,6 @@
         
     </form>
 </div>
+<script src="{{ url_for('static', filename='js/addeditjs.js') }}"></script>
 
 {% endblock %}

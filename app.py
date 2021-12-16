@@ -130,6 +130,7 @@ def add_recipe():
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.getlist("ingredients"),
             "image_url": image_url,
             "created_by": session["user"]
         }
