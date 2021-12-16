@@ -91,7 +91,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     recipes = list(mongo.db.recipes.find(
-        {"added_by": session["user"]}
+        {"created_by": session["user"]}
     ))
     if session["user"]:
         return render_template(
@@ -163,6 +163,7 @@ def edit_recipe(recipe_id):
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.getlist("ingredients"),
             "image_url": image_url,
             }
         mongo.db.recipes.update_one(
@@ -179,7 +180,7 @@ def edit_recipe(recipe_id):
 # ---------------------------------------------------------------- User delete recipe functionality
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    current_recipe = mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Your recipe has been deleted")
     return redirect(url_for("profile", username=session["user"]))
 

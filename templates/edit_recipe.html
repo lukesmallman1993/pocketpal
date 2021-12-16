@@ -24,16 +24,32 @@
 
                 <!-- input recipe name -->
                 <div class="input-field col s12">
-                    <input id="recipe_name" name="recipe_name" minlength="2" maxlength="40" value="{{ recipe.title_name }}" type="text" class="validate" required>
+                    <input id="recipe_name" name="recipe_name" minlength="2" maxlength="40" value="{{ recipe.recipe_name }}" type="text" class="validate" required>
                     <label for="recipe_name">Recipe</label>
                 </div>
 
-                <!-- input description of recipe -->
-                <div id="description-col" class="input-field col s12">
-                    <input id="recipe_description" name="recipe_description" minlength="2" maxlength="30" value="{{ recipe.recipe_description }}" type="text" class="validate">
-                    <label for="recipe_description">Description</label>
+                
+            <!-- input recipe ingredients -->
+            <div class="row">
+                <div class="input-field col s12" id="ingredient-section">
+                    <i class="fas fa-pepper-hot prefix"></i>
+                    <input id="ingredients" name="ingredients" type="text" class="validate ingredient-input" minlength="4" required>
+                    <label for="ingredients">Ingredients</label>
+                    <!--Below is where each new ingredient is added-->
+                    <div id="ingredient-insert"></div>
                 </div>
-                    
+                <div>
+                    <div class="row">
+                        <span class="button-div">
+                            <button type="button" id="next-ingredient-button" class="btn-large positive-button-style">Add ingredient</button>
+                        </span>
+                        <span class="button-div">
+                            <button type="button" id="delete-ingredient-button" class="btn-large negative-button-style">Delete ingredient</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
                 <!-- input image url as an option for the user - not required -->    
                 
                 <div class="input-field col s12">
@@ -61,5 +77,7 @@
             
         </form>
     </div>
+
+<script src="{{ url_for('static', filename='js/addeditjs.js') }}"></script>
 
 {% endblock %}

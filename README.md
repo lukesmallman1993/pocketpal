@@ -76,7 +76,7 @@ As a site owner, I would like to provide a clear, easy to navigate, eye catching
 
 ### **Fonts**
 
-When choosing a font I came across a number of really good fonts to chose from on google font and also dafont just to see if they had anything that google font did not. After some testing which a variety of fonts I decided to go with …………… as this was the most eye catching and easier to read and understand. I also went with san-serif as the backup font just in case my chosen font failed.
+When choosing a font I came across a number of really good fonts to chose from on google font and also dafont just to see if they had anything that google font did not. After some testing which a variety of fonts I decided to go with fredoka one as this was the most eye catching and easier to read and understand. I also went with san-serif as the backup font just in case my chosen font failed.
 
 ### **Colours**
 
