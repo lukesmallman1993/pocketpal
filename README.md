@@ -102,6 +102,8 @@ With the images attached to the recipes, I will be allowing the user to upload a
 
 I used mongodb as the database for this project, as a non relational, document database, it gives more flexibility to this type of site. I used dbdiagram.io when designing the database schema that would best facilitate this project. I based my schema on using 3 collections – ‘user’, ‘categories’ and ‘recipes’.
 
+![fonts](static/images/db.png)
+
 [Back to contents](#content)
 
 ## **Technologies**
@@ -145,6 +147,34 @@ I used mongodb as the database for this project, as a non relational, document d
 
 ## **Features**
 
+1. Across the site: 
+    - Navigation bar with name (linked back to home page), links to home page, register and log in. These links are visible to the casual user that have not yet created an account. Once a user has registered/logged in, the links change from Register & Log in options, to My profile, Add recipe and Log out. 
+    - Footer with links to social media (this will open a new tab to the main homepages of each social media platform as this website is only created for the Code Institute Milestone 3 project and so does not have live social media pages) & link to our contact page. 
+    - Use of Flash messages to update the user when an action has been taken.
+    - Fully responsive to ensure a good user experience on all devices. 
+    
+2. Home Pages
+    - The home page will dispaly all the recipes that different users have added.
+    - All recipes will be added to a card which will dispaly an image and the infomation that the user has given.
+    - There will be a button on the card that will also bring up the description of the recipe and also what ingredients are used.
+    - Below the card will be an edit and delete button so that if a mistake was made they can correct this.
+
+3. Add Recipe Page   
+    - For registered and logged in users, this page allows them to create their own recipe. The form shows a clear understanding of what needs to be done and if the input fields are empty then a red outline will show, confirming that the user needs to fill out the input field. Once filled out the box will then turn screen to confirm that infomation has been added. 
+    - When the user submits the recipe, the user will be redireted back to the recipe page which they can view their added recipe. 
+    - The user will be able to add thier own image to the recipe if they choose to, but if they choose not to a defualt image will be provided for them.
+
+4. Profile Page
+    - For registered and logged in users, this page shows any recipes they have created and submitted to the site. The recipes show edit and delete buttons so the user can perform these actions as they wish and will be redirected to the edit recipe page or a confirm delete warining will show up just in case the user mistakenly clicked the button.
+    - If no recipes have been added by the user, a message will display to prompt the user in creating a recipe. 
+
+5. Edit Recipe 
+    - Form is consistent with the Add Recipe form to ensure ease of use for the user, it is prefilled with all the details that were orgianlly used to add the recipe.
+
+6. Register Page/ Log In Page
+    - The same format was used across these pages with a form on each, containing clear infomation on what to fill in.
+    - Once the user has registered or logged in successfully, they will be redirected to their profile page. 
+
 [Back to contents](#content)
 
 ## **Testing**
@@ -180,6 +210,43 @@ I used mongodb as the database for this project, as a non relational, document d
    3. Change the current working directory to the location where the cloned directory should be stored.
    4. Type "git clone', then paste the URL copied in step 2.
    5. Press Enter to create a local clone.
+
+  ### **Heroku Deployment**
+1. In the Gitpod environment, within the project, create a .gitignore file and an env.py file. 
+2. In the env.py file, `import os` and then set the following environment variables: 
+```
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "your unique secret key")
+os.environ.setdefault("MONGO_URI", "your unique mongo db link")
+os.environ.setdefault("MONGO_DBNAME", "your database name")
+```
+3. Ensure your env.py file is added to the .gitignore file to ensure this senstive information is not pushed to Github.
+4. Create a requirements.txt file which is used to specify what python packages are required to run this project. In the Terminal, type the following command to create this file `pip3 freeze --local > requirements.txt`.
+5. Create a Procfile by typing the following in the terminal, `echo web: python app.py > Procfile` making sure to use an uppercase 'P' when naming the file. Open the Procfile and ensure there is no blank line after the first line which should contain `web: python app.py`.
+6. Push these files to the project Github Repository.
+
+To deploy to Heroku, the following steps were taken:
+
+1. Go to the [Heroku Website](https://id.heroku.com/login) and log in.
+2. In the dashboard, select "Create New App".
+3. Choose a unique app name and select the region appropriate to your location and click on 'Create App'.
+4. From the dashboard, go to the "Deploy" tab and under "Deployment method" choose Github.
+5. Search for your repository name and click on "Connect". 
+6. Next, go to the "Settings" tab and scroll down to "Config Vars", click on "Reveal Config Vars".
+7. Enter the following keys and values which must match those in your env.py file:
+
+|Key|Value|
+|----|----|
+|IP|0.0.0.0|
+|PORT|5000|
+|SECRET_KEY|*your unique secret key*|
+|MONGO_URI|*your unique mongo db link*|
+|MONGO_DBNAME|*your database name*|
+
+8. Go back to the "Deploy" tab and click on "Enable Automatic Deployment". 
+9. Under "Manual Deploy", select "main" and click "Deploy Branch".
+10. Once the app has finished building, click on the "Open App" tab at the top right of the page.
 
 [Back to contents](#content)
 

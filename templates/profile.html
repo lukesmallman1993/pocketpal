@@ -22,20 +22,20 @@
       </div>
 
       <div class="row">
-          {% for recipe in recipes if session.user|lower == recipe.added_by|lower %}
+          {% for recipe in recipes if session.user|lower == recipe.cretaed_by|lower %}
           <div class="col s12 m6 l4">
             <div class="card hoverable"> 
               <div class="card-image">
                 {% if recipe.image_url %}
                   <img class="activator category-image" src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }} image">
                 {% else %}
-                      <img class="activator category-image" src="../static/images/food.jpg" alt="zombie image"> 
+                      <img class="activator category-image" src="../static/images/food.png" alt="food image"> 
                 {% endif %}
               </div>
           
               <div class="card-content">
                   <span class="category-heading card-title activator">{{ recipe.category_name }}<i class="fas fa-arrow-circle-up right"></i></span>
-                  <span class="recipe-heading">Recipe:</span><span class="recipe-content">{{ recipe.title_name }}</span> <br>
+                  <span class="recipe-heading">Recipe:</span><span class="recipe-content">{{ recipe.recipe_name }}</span> <br>
                   {% if recipe.recipe_name %}
                     <span class="recipe-heading">Description:</span> <span class="recipe-content">{{ recipe.recipe_description }}</span><br>
                   {% endif %}

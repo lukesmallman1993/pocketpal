@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 body {
-    background: url('../images/white-hands-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #a52612;
+    background-image: url('/static/images/background.jpg');
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -10,7 +10,11 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    font-family:;
+    font-family:'Fredoka One', sans-serif;
+}
+
+html {
+    color: #1B9AAA;
 }
 
 /* --- materialize css for sticky footer ---  */
@@ -22,12 +26,12 @@ main {
 
 /* --- headers --- */
 h1, .brand-logo {
-    font-family:;  
+    font-family:'Fredoka One', sans-serif;;  
 }
 
 h1 {
-    text-shadow: 2px 2px 10px whitesmoke;
-    font-family:;
+    text-shadow: 2px 2px 10px #DDDBCB;
+    font-family:'Fredoka One', sans-serif;;
     font-size: 80px;
 }
 
@@ -37,18 +41,18 @@ h1, h2, h4, p {
 }
 
 h2, h3, h4 {
-    font-family:;
-    text-shadow: 2px 2px 10px whitesmoke;
+    font-family:'Fredoka One', sans-serif;;
+    text-shadow: 2px 2px 10px #DDDBCB;
 }
 
 
 /* --- nav bar styling --- */
 .nav-wrapper {
-    background-color: #2f3437;
+    background-color: #1B9AAA;
 }
 
 nav li a {
-    font-family:;
+    font-family:'Fredoka One', sans-serif;;
     font-size: 30px;
 }
 .dropdown-items li>a {
@@ -60,7 +64,7 @@ nav li a {
 footer {
     margin-top: 20px;
     height: 70px;
-    background-color: #2f3437;
+    background-color: #050505;
 }
 
 .footer-div {
@@ -69,12 +73,12 @@ footer {
 
 .footer-text {
     margin-top: 10px;
-    color: whitesmoke;
+    color: #DDDBCB;
     font-size: 25px;
-    font-family:;
+    font-family:'Fredoka One', sans-serif;;
 }
 .footer-text a {
-    color: whitesmoke;
+    color: #DDDBCB;
     margin: 5px;
     
 }
@@ -89,7 +93,7 @@ form {
 }
 
 .input-field>label {
-    color: #727070;
+    color:#1B9AAA;
 }
 .form-row {
     margin: 40px 20px 40px 20px;
@@ -144,35 +148,6 @@ form {
     line-height: 3;
 }
 
-/* --- home page --- */
-.intro-text {
-    font-size: 20px;
-    font-weight: 700;
-    color: #2f3437;
-    text-shadow: 2px 2px 10px whitesmoke;
-}
-.intro-text a {
-    color:#a52612;
-}
-
-.category-box {
-    height: 250px;
-    width: 50%;  
-    margin: 20px;
-    -webkit-box-shadow: 0px 2px 10px 2px #b8b8b8;
-            box-shadow: 0px 2px 10px 2px #b8b8b8;
-}
-
-.category-box h4 a {
-    font-size: 70px;
-    color: #a52612;
-}
-
-.category-icon {
-    font-size: 40px;
-    color: #a52612;
-}
-
 /* --- recipes page --- */
 
 .card {
@@ -182,9 +157,7 @@ form {
 .card-image {
     height: 65%;
 }
-
-/* code to resize image and keep aspect ratio for user uploaded image urls from stack overflow */
-/* https://stackoverflow.com/questions/12991351/css-force-image-resize-and-keep-aspect-ratio */ 
+ 
 .category-image {
     -o-object-fit: scale-down;
        object-fit: scale-down;
@@ -195,7 +168,7 @@ form {
 }
 
 .recipe-heading {
-    font-family: 'Jolly Lodger', cursive;
+    font-family:'Fredoka One', sans-serif;;
     font-size: 25px;
     margin-right: 10px;
 }

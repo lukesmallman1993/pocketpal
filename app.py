@@ -128,7 +128,7 @@ def add_recipe():
 
         recipe = {
             "category_name": request.form.get("category_name"),
-            "recipe_name": request.form.get("recipe_name").recipe(),
+            "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
             "image_url": image_url,
             "created_by": session["user"]
@@ -151,16 +151,16 @@ def edit_recipe(recipe_id):
         image_url = ""
         if recipe_image:
             # function call to verify image
-            if is_url_image(recipe_image):
+            if is_url_image(image_url):
                 image_url = recipe_image
                 flash("Image verified")
             else:
-                image_url = "../static/images/new-zombie.jpg"
+                image_url = "../static/images/food.png"
                 flash("Image not valid, will apply default image instead")
 
         updated_recipe = {
             "category_name": request.form.get("category_name"),
-            "recipe_name": request.form.get("recipe_name").recipe(),
+            "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
             "image_url": image_url,
             }
