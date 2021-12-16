@@ -184,6 +184,10 @@ def delete_recipe(recipe_id):
     flash("Your recipe has been deleted")
     return redirect(url_for("profile", username=session["user"]))
 
+@app.errorhandler(500)
+def internal_server_error(error):
+    return render_template("500.html", error=error), 500
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

@@ -1,3 +1,9 @@
+# PocketPal
+
+[View live project here](http://ms3-pocket-pal.herokuapp.com/get_recipes)
+
+<h2 align="center"><img src="static/images/responsive.png">
+
 ## **Content**
 
 - [**UX (User Experience)**](#ux-user-experience)
