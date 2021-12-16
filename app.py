@@ -25,7 +25,7 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-# ---------------------------------------------------------------- search functionality
+# search functionality
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -33,7 +33,7 @@ def search():
     return render_template("recipes.html", recipes=recipes)
 
 
-# ---------------------------------------------------------------- User registration
+# User registration
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -57,7 +57,7 @@ def register():
     return render_template("register.html")
 
 
-# ---------------------------------------------------------------- User login
+# User login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -84,7 +84,7 @@ def login():
     return render_template("login.html")
 
 
-# ---------------------------------------------------------------- User profile page
+# User profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # get session user's name from db
@@ -100,7 +100,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-# ---------------------------------------------------------------- User log out
+# User log out
 @app.route("/logout")
 def logout():
     # remove user from session cookies
@@ -109,7 +109,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# ---------------------------------------------------------------- User add recipe functionality
+# User add recipe functionality
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -142,7 +142,7 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
-# ---------------------------------------------------------------- User edit recipe functionality
+# User edit recipe functionality
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -177,7 +177,7 @@ def edit_recipe(recipe_id):
         "edit_recipe.html", recipe=recipe, categories=categories)
 
 
-# ---------------------------------------------------------------- User delete recipe functionality
+# User delete recipe functionality
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     current_recipe = mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})

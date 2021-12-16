@@ -20,11 +20,6 @@
 - [**Features**](#features)
   
 - [**Testing**](#testing)
-  - [**Functionality Testing**](#functionality-testing)
-  - [**User Story Testing**](#user-story-testing)
-  - [**Performance Testing**](#performance-testing)
-  - [**Responsive**](#responsive)
-  - [**W3C Validator**](#w3c-validator)
 
 - [**Bugs**](#bugs)
 
@@ -155,8 +150,8 @@ I used mongodb as the database for this project, as a non relational, document d
     - Used to style my pages and the content on the game.
   - [JS](https://en.wikipedia.org/wiki/JavaScript). 
     - Used to contact the DOM.
-  - [Python3](link)
-    - Used to ........
+  - [Python3](https://en.wikipedia.org/wiki/Python_(programming_language))
+  
 
  ### **Libraries**
   - Jinja Template engine for Python
@@ -174,6 +169,7 @@ I used mongodb as the database for this project, as a non relational, document d
   - coolers.co Color scheme generator
   - Randomkeygen.com Secure password/secret key generator
   - Website Mockup Generator used to generate responsive screenshot
+  - Responsinator.com
   
  ### **Tools**
 
@@ -228,6 +224,11 @@ I used mongodb as the database for this project, as a non relational, document d
 
 - Friends and family where asked to review the website and give feedback on any changes I could make.
 
+### **Responsiveness**
+
+- Checked the responsiveness of the website at every stage of development throughout the project using Chrome Dev Tools.
+- Also checked responsiveness at [Responsinator.com](https://www.responsinator.com/)
+
 ### **Lighthouse**
 
 1. Add Recipe 
@@ -238,6 +239,18 @@ I used mongodb as the database for this project, as a non relational, document d
 
 3. Profile Page 
 ![fonts](static/testing/lighthouse-2.png)
+
+[Back to contents](#content)
+
+### **W3C Validator**
+1. Css - [Results](static/testing/validate-css.png)
+- I directly imported my css file and no errors where shown.
+2. Html - [Results](static/testing/validate-html.png)
+- All pages had the same warning which was "consider using h2-h6" 
+3. JavaScript - [Results](static/testing/validate-js-1.png) [Results](static/testing/validate-js-2.png)
+- No errors on both.
+4. Python - [Results](static/testing/validate-python.png)
+- No errors.
 
 [Back to contents](#content)
 
