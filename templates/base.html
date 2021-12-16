@@ -39,7 +39,7 @@
 
         <!-- mobile sidenav -->
 		<ul class="sidenav" id="mobile-demo">
-            <li><h4 class="center-align light-blue-text text-darken 4">PocketPal</h4></li>
+            <li><h4 class="center-align cyan-text text-darken 4">PocketPal</h4></li>
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
@@ -72,6 +72,21 @@
         {% block content %}
         {% endblock %}
     </main>
+
+    <footer>
+        <div class="row">
+          <div class="col s12 m6 footer-div">
+              <p class="footer-text">Follow us on social media - 
+                  <a class="social-links" href="https://www.facebook.com/" title="Facebook" target="_blank" rel="noopener"><i
+                          class="fab fa-facebook-f"></i></a>
+                  <a class="social-links" href="https://twitter.com/" title="Twitter" target="_blank" rel="noopener"><i
+                          class="fab fa-twitter"></i></a>
+                  <a class="social-links" href="https://www.instagram.com" title="Instagram" target="_blank" rel="noopener"><i
+                      class="fab fa-instagram"></i></a>
+              </p>
+          </div>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

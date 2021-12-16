@@ -53,10 +53,11 @@ h2, h3, h4 {
 
 nav li a {
     font-family:'Fredoka One', sans-serif;;
-    font-size: 30px;
+    font-size: 20px;
 }
 .dropdown-items li>a {
-    font-size: 20px;
+    font-size: 300px;
+    color: #2f3437;
 }
 
 
@@ -64,21 +65,22 @@ nav li a {
 footer {
     margin-top: 20px;
     height: 70px;
-    background-color: #050505;
+    background-color: #1B9AAA;
 }
 
 .footer-div {
     height: 70px;
+     text-align: center;
 }
 
 .footer-text {
     margin-top: 10px;
-    color: #DDDBCB;
+    color: #ffffff;
     font-size: 25px;
     font-family:'Fredoka One', sans-serif;;
 }
 .footer-text a {
-    color: #DDDBCB;
+    color: #ffffff;
     margin: 5px;
     
 }
@@ -151,7 +153,8 @@ form {
 /* --- recipes page --- */
 
 .card {
-    height: 560px;
+    height: 450px;
+    border-radius: 1rem;
 
 }
 .card-image {
@@ -169,7 +172,7 @@ form {
 
 .recipe-heading {
     font-family:'Fredoka One', sans-serif;;
-    font-size: 25px;
+    font-size: 15px;
     margin-right: 10px;
 }
 

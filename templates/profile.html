@@ -36,12 +36,11 @@
               <div class="card-content">
                   <span class="category-heading card-title activator">{{ recipe.category_name }}<i class="fas fa-arrow-circle-up right"></i></span>
                   <span class="recipe-heading">Recipe:</span><span class="recipe-content">{{ recipe.recipe_name }}</span> <br>
-                  {% if recipe.recipe_name %}
-                    <span class="recipe-heading">Description:</span> <span class="recipe-content">{{ recipe.recipe_description }}</span><br>
-                  {% endif %}
               </div>
 
               <div class="card-reveal">
+                <span class="recipe-heading card-title">Description:<i class="fas fa-arrow-circle-down right"></i></span> <span class="recipe-content">{{ recipe.recipe_description }}</span><br>
+                <span class="recipe-heading card-title">Ingredients:</span> <span class="recipe-content"> {% for ingredient in recipe.ingredients %} {{ingredient}} <br>{% endfor %}</span><br>
                 <br><span class="recipe-heading"><em>Created by:</em></span><span class="recipe-content">{{ recipe.created_by }}</span>
               </div>    
             </div> 
