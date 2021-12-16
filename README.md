@@ -10,7 +10,6 @@
   - [**Colours**](#colours)
   - [**Imagery**](#imagery)
   - [**Wireframes**](#wireframes)
-  - [**Logo**](#logo)
   - [**Database**](#database)
 
 - [**Technologies**](#technologies)
@@ -33,11 +32,8 @@
   - [**Running Locally**](#running-locally)
 
 - [**Credits**](#credits)
-  - [**Code**](#code)
   - [**Content**](#content)
   - [**Images**](#images)
-  - [**Videos**](#videos)
-  - [**Inspiration**](#inspiration)
   - [**Acknowledgements**](#acknowledgements)
   
   ## **UX (User Experience)**
@@ -76,10 +72,18 @@ As a site owner, I would like to provide a clear, easy to navigate, eye catching
 
 ### **Fonts**
 
+![fonts](static/images/font1.png)
+![fonts](static/images/font2.png)
+![fonts](static/images/font3.png)
+![fonts](static/images/font4.png)
+![fonts](static/images/font5.png)
+![fonts](static/images/font6.png)
+
 When choosing a font I came across a number of really good fonts to chose from on google font and also dafont just to see if they had anything that google font did not. After some testing which a variety of fonts I decided to go with fredoka one as this was the most eye catching and easier to read and understand. I also went with san-serif as the backup font just in case my chosen font failed.
 
 ### **Colours**
 
+![fonts](static/images/color-scheme.png)
 I used coolors.co to generate a colour scheme for my project. At first I was going to use black, red and white as these where mutual colours, but after scrolling through the different colour schemes, I decided to go with rich black, blue Munsell and bone as this was a better fir for my website.
 
 ### **Imagery**
@@ -92,11 +96,47 @@ With the images attached to the recipes, I will be allowing the user to upload a
 ### **Wireframes**
 
  ##### **Home Page**
-   - Web - [view]()
-   - Ipad - [view]()
-   - Iphone - [view]()
+   - Web - [view](static/wireframes/recipe-web.png)
+   - Ipad - [view](static/wireframes/recipe-ipad.png)
+   - Iphone - [view](static/wireframes/recipe-iphone.png)
 
-### **Logo**
+  ##### **Signup Page**
+   - Web - [view](static/wireframes/signup-web.png)
+   - Ipad - [view](static/wireframes/signup-ipad.png)
+   - Iphone - [view](static/wireframes/signup-iphone.png)
+
+  ##### **Profile Page**
+   - Web - [view](static/wireframes/profile-web.png)
+   - Ipad - [view](static/wireframes/profile-ipad.png)
+   - Iphone - [view](static/wireframes/profile-iphone.png)
+
+  ##### **Login Page**
+   - Web - [view](static/wireframes/login-web.png)
+   - Ipad - [view](static/wireframes/login-ipad.png)
+   - Iphone - [view](static/wireframes/login-iphone.png)
+
+  ##### **Edit Page**
+   - Web - [view](static/wireframes/edit-web.png)
+   - Ipad - [view](static/wireframes/edit-ipad.png)
+   - Iphone - [view](static/wireframes/edit-iphone.png)
+
+  ##### **Delete Warning**
+   - Web - [view](static/wireframes/delete-web.png)
+   - Ipad - [view](static/wireframes/delete-ipad.png)
+   - Iphone - [view](static/wireframes/delete-iphone.png)
+
+  ##### **Base Page**
+   - Web - [view](static/wireframes/base-web.png)
+   - Ipad - [view](static/wireframes/base-ipad.png)
+   - Iphone - [view](static/wireframes/base-iphone.png)
+
+  ##### **Add Page**
+   - Web - [view](static/wireframes/add-web.png)
+   - Ipad - [view](static/wireframes/add-ipad.png)
+   - Iphone - [view](static/wireframes/add-iphone.png)
+
+  ##### **Dropdown navbar**
+   - Ipad/Iphone - [view](static/wireframes/dropdown.png)
 
 ### **Database**
 
@@ -179,9 +219,104 @@ I used mongodb as the database for this project, as a non relational, document d
 
 ## **Testing**
 
+### **Performance Testing**
+- The website was tested on Google Chrome and Internet Explorer.
+
+- The website was viewed on a variety of devices such as a Desktop , Tablet and Mobile.
+
+- A large ammount of testing was done to make sure all the links worked.
+
+- Friends and family where asked to review the website and give feedback on any changes I could make.
+
+### **Lighthouse**
+
+1. Add Recipe 
+![fonts](static/testing/lighthouse-3.png)
+
+2. Home Page
+![fonts](static/testing/lighthouse-1.png)
+
+3. Profile Page 
+![fonts](static/testing/lighthouse-2.png)
+
 [Back to contents](#content)
 
+### **User Stories Testing**
+
+1. As a user, I want to easily add my own recipes with a description of what this recipe includes.
+- The nav bar is easily noticeable and on there is a link o add your own recipe.
+- The form to fill in is easy to understand and will not confuse the user.
+- All fields on the form are labeld with what needs to be done in each field.
+
+2. As a user, I want to be able to navigate through the site easily and read recipes to help me decided which ones I would like to make.
+- To achieve this I have ensured that the navigation throughout the website is accesible therefore ensuring that the users don't get confused.
+- All buttons are easily readable and the colour scheme I have used compliments each other.
+- All buttons are clearly labeled therefore the user will know what buttons to use.
+- The user will first be directed to the home page where they can view other users recipes. All cards are easy to read and wont confuse the user.
+
+3. As a user, I would like to see all the recipes information without having to create an account, so I can decided if I would like to proceed with adding my own recipes.
+- The user can view other users recipes without creating an account.
+- All recipes will be available to view.
+
+4. As a user, I would like to create a profile so that I can add my own recipes to share with others.
+- The user can creat an account by selecting the sign up section which will take them to a form to fill out.
+- After creating an account, you can then add your own recipes.
+
+5. As a user, I would like to search the database for a specific ingredient or recipe.
+- The user can search for any keyword in the search bar which is located at the top of the home page.
+- Searching a word will bring up each recipe that has that word in there.
+
+6. As a user, I would like to edit or delete a recipe so that changes can be made.
+- Once the user adds a recipe, if they make a mistake they can click the edit button at the bottom.
+- There is also a delete button there so that the user can delete their recipe if they choose to.
+- Only the user that created that recipe can delete or edit their recipe.
+- If they click the delete button, there will be a warning message just in case they clicked it by mistake.
+
+7. As a user, I would like to see social media links so that I can keep up to date on any changes made.
+- At the bottom on each page there will be a footer with links to socail media sites.
+- These site are only linked to the main pages for the purpose on this assignment.
+
+### **Feature Testing**
+
+1. Home Page
+![fonts](static/testing/testing-home.png)
+
+2. Add Recipe
+![fonts](static/testing/testing-add.png)
+
+3. Profile Page
+![fonts](static/testing/testing-profile.png)
+
+4. Edit Recipe
+![fonts](static/testing/testing-edit.png)
+
+5. Login
+![fonts](static/testing/testing-login.png)
+
+6. Logout
+![fonts](static/testing/testing-logout.png)
+
+7. Register
+![fonts](static/testing/testing-register.png)
+
+### **Testing Deployed Site**
+
+- A variety of testing was carried out to insure that all content was correct and everything was working as it should be. This was to make sure eveything matched the final development version.
+
+### **Final Test**
+
+After completing the code I thought it was appropriate to check that everything was working effectivly to ensure I hit target goals and expectations that this task required. Once the final deployment was made as you can see from the image, I added some recipes just to see if they would be fine.
+
+![fonts](static/testing/testing-profile.png)
+
+
+
 ## **Bugs**
+
+Bug | Fix
+--------|--------
+8080 port would not show up when typing python3 app.py | Changed my to 5000 and then changed back to 8080.
+Search function would locate anything and was showing error (pymongo.errors.OperationFailure: text index required for $text query, full error: {'operationTime':)|Added an index on my MongoDB. [view](static/images/testing-1.png)
 
 [Back to contents](#content)
 
@@ -251,5 +386,18 @@ To deploy to Heroku, the following steps were taken:
 [Back to contents](#content)
 
 ## **Credits**
+
+### **Content**
+  - https://github.com/LukeSmallman/pure-fitness.git
+  - https://codepen.io/trending 
+  - https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/579bbf01edaf47938e6a860b8f08f275/
+
+ ### **Images**
+   - https://cdn3.vectorstock.com/i/1000x1000/18/12/food-and-ingredients-background-flat-design-vector-10431812.jpg
+   - https://www.vectorstock.com/royalty-free-vector/background-pattern-with-fast-food-icons-vector-22769993
+
+  ### **Acknowledgements**
+   - My mentor for helpful me with feedback and problems.
+   - Student support at code institute for their infomation and support.
 
 [Back to contents](#content)
