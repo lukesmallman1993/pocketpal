@@ -142,12 +142,12 @@ def add_recipe():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
+
 def is_url_image(image_url):
-   image_formats = ("image/png", "image/jpeg", "image/jpg")
-   r = requests.head(image_url)
-   if r.headers["content-type"] in image_formats:
-      return True
-   return False
+    image_formats = ("image/png", "image/jpeg", "image/jpg")
+    r = requests.head(image_url)
+    if r.headers["content-type"] in image_formats:
+        return True
 
 
 # User edit recipe functionality
@@ -192,6 +192,7 @@ def delete_recipe(recipe_id):
     flash("Your recipe has been deleted")
     return redirect(url_for("profile", username=session["user"]))
 
+
 @app.errorhandler(500)
 def internal_server_error(error):
     return render_template("500.html", error=error), 500
@@ -206,7 +207,7 @@ def page_not_found(error):
 def forbidden(error):
     return render_template("403.html", error=error), 403
 
-    
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
