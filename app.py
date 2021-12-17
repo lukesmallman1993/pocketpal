@@ -1,4 +1,5 @@
 import os
+import requests
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -141,6 +142,13 @@ def add_recipe():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
+def is_url_image(image_url):
+   image_formats = ("image/png", "image/jpeg", "image/jpg")
+   r = requests.head(image_url)
+   if r.headers["content-type"] in image_formats:
+      return True
+   return False
+
 
 # User edit recipe functionality
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -152,7 +160,7 @@ def edit_recipe(recipe_id):
         image_url = ""
         if recipe_image:
             # function call to verify image
-            if is_url_image(image_url):
+            if is_url_image(recipe_image):
                 image_url = recipe_image
                 flash("Image verified")
             else:

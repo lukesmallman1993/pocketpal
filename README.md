@@ -336,6 +336,7 @@ Bug | Fix
 --------|--------
 8080 port would not show up when typing python3 app.py | Changed my to 5000 and then changed back to 8080.
 Search function would locate anything and was showing error (pymongo.errors.OperationFailure: text index required for $text query, full error: {'operationTime':)|Added an index on my MongoDB. [view](static/images/testing-1.png)
+When updating or adding a recipe, the image url would not let me upload one from a url and was coming back with a error (is_image_url is not defined) | For this to work I had to define the is_image_url as you can see in the image attached. [view](static/images/bug-1.png)
 
 [Back to contents](#content)
 
