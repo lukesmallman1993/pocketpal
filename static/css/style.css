@@ -120,11 +120,12 @@ form {
 }
 
 input, select, textarea{
-    color: #1B9AAA;
+    color: #00aeff;
+
 }
 
 textarea:focus, input:focus {
-    color: #1B9AAA;
+    color: #00aeff;
 }
 
 /* --- buttons --- */
