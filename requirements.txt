@@ -6,3 +6,4 @@ Flask-PyMongo==2.3.0
 itsdangerous==2.0.1
 pymongo==4.0.1
 Werkzeug==2.0.2
+requests==2.26.0
